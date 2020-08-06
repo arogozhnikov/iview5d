@@ -61,8 +61,8 @@ def prepare_html_code(tensor, x_axis_name, y_axis_name, zoom=2):
             var prev_x_step = div.style.getPropertyValue('--x-step');
             var prev_y_step = div.style.getPropertyValue('--y-step');
 
-            var x_step = Math.min(Math.floor((x / rect.width)  * x_steps), x_steps - 1); 
-            var y_step = Math.min(Math.floor((y / rect.height) * y_steps), y_steps - 1);
+            var x_step = Math.max(Math.min(Math.floor((x / rect.width)  * x_steps), x_steps - 1), 0); 
+            var y_step = Math.max(Math.min(Math.floor((y / rect.height) * y_steps), y_steps - 1), 0);
             // stop if shown segment did not change
             if ((x_step == prev_x_step) && (y_step == prev_y_step)) return;
 
