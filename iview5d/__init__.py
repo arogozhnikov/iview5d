@@ -94,6 +94,7 @@ def iview5d(tensor, einops_pattern, zoom=1, **axes_sizes):
     if len(reshaped.shape) == 5:
         assert reshaped.shape[-1] <= 3, 'number of colors should be less than 3'
         if reshaped.shape[-1] == 2:
+            # pad to 3 colors, fill last channel with zeros
             reshaped = np.pad(reshaped, [(0, 0), (0, 0), (0, 0), (0, 0), (0, 1)], mode='constant')
         elif reshaped.shape[-1] == 1:
             reshaped = reshaped[:, :, :, :, 0]
