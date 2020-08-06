@@ -17,6 +17,6 @@ setup(
         'numpy',
         'einops',
         'pillow',
-        'matpotlib',
+        'matplotlib',
     ],
 )
