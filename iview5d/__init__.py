@@ -4,7 +4,7 @@ from io import BytesIO
 import numpy as np
 from IPython.display import display_html
 from einops import rearrange
-from einops.einops import parse_expression
+from einops.einops import ParsedExpression
 from matplotlib import pyplot as plt
 
 
@@ -99,7 +99,7 @@ def iview5d(tensor, einops_pattern, zoom=1, **axes_sizes):
         elif reshaped.shape[-1] == 1:
             reshaped = reshaped[:, :, :, :, 0]
 
-    _, parsed_right_part = parse_expression(einops_pattern.split('->')[1])
+    parsed_right_part = ParsedExpression(einops_pattern.split('->')[1]).composition
     x_name = ','.join(parsed_right_part[0])
     y_name = ','.join(parsed_right_part[1])
 
