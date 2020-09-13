@@ -12,7 +12,8 @@ pip install git+ssh://git@github.com/arogozhnikov/iview5d.git
 
 ## Usage (viewing)
 
-Move your cursor over the image - as you move 
+- Move your cursor over the image - as you move a cursor, element of a stack that is shown, changes.
+- Main usage - collect multiple parameters/layers, where 'side-to-side' is not an option
 
 ## Usage (code)
 
@@ -27,10 +28,11 @@ Output should have 4 or 5 dimensions in the following order
 - width
 - (optional) color
 
-In example below:
+Code below outputs a viewer in jupyter:
 
-```
-view5d(
+```python
+from iview5d import iview5d
+iview5d(
     stack,
     'batch z channel h w -> batch z h w channel', 
     zoom=0.5,
@@ -45,11 +47,12 @@ Axes will be used as:
 
 ## Video 
 
-See in action: 
+See how it looks in action: [video](https://raw.githubusercontent.com/arogozhnikov/iview5d/example/example/view5d.webm?token=ABQGVW576NCEE4LZARB746S7M3BQS) 
 
 ## Try it out (demonstration)
 
-
+[nbviewer link](https://nbviewer.jupyter.org/github/arogozhnikov/iview5d/blob/master/example/Example.ipynb), 
+move cursor over all images
 
 ## Warning
 
