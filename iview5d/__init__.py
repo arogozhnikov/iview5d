@@ -3,14 +3,14 @@ from io import BytesIO
 
 import numpy as np
 from IPython.display import display_html
-from einops import rearrange
+from einops import rearrange, asnumpy
 from einops.einops import ParsedExpression
 from matplotlib import pyplot as plt
 
 
 def get_background_image_code(image, max_tolerable_size_in_bytes=20_000_000):
     with BytesIO() as myio:
-        # TODO better compression or better
+        # TODO better compression?
         plt.imsave(myio, image, format='jpeg', cmap='gray')
         png_bytes = myio.getvalue()
     png_bytes_64 = base64.b64encode(png_bytes).decode()
@@ -89,6 +89,7 @@ def prepare_html_code(tensor, x_axis_name, y_axis_name, zoom=2):
 
 def iview5d(tensor, einops_pattern, zoom=1, **axes_sizes):
     reshaped = rearrange(tensor, einops_pattern, **axes_sizes)
+    reshaped = asnumpy(reshaped)
     assert len(reshaped.shape) in [4, 5], \
         'reshaped tensor should have 4 or 5 axes [y-controllable, x-controllable, height, width, color (optional)]'
     if len(reshaped.shape) == 5:
