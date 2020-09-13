@@ -15,7 +15,7 @@ setup(
     keywords='variability analysis, variability decomposition, contributing factors',
     install_requires=[
         'numpy',
-        'einops',
+        'einops>=0.3',
         'pillow',
         'matplotlib',
     ],
