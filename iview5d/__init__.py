@@ -27,7 +27,7 @@ def prepare_html_code(tensor, x_axis_name, y_axis_name, zoom=2):
     w *= zoom
     # keeping stuff in css variables (alternatively could use data-properties)
     style = f'''
-        margin: 60px;
+        margin: 20px;
         height: {h}px; 
         width: {w}px; 
         --x-step: 0;
