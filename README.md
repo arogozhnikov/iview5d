@@ -7,7 +7,7 @@ Powered by einops transformation
 
 Right from github
 ```
-pip install git+ssh://git@github.com/arogozhnikov/iview5d.git
+pip install git+https://git@github.com/arogozhnikov/iview5d.git
 ```
 
 ## Usage (viewing)
